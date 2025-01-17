@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/const/theme.dart';
-import 'package:flutter_application_1/models/contract_model.dart';
+import 'package:flutter_application_1/models/project_model.dart';
 import 'package:flutter_application_1/tools/utils/extentions.dart';
 
-class ContractCard extends StatelessWidget {
-  final ContractModel contract;
-  final bool showDueDate;
-  final bool canTap;
+class ProjectCard extends StatelessWidget {
+  final ProjectModel project;
 
-  const ContractCard({
-    super.key,
-    required this.contract,
-    required this.showDueDate,
-    required this.canTap,
-  });
+  const ProjectCard({super.key, required this.project});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +26,7 @@ class ContractCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Contract #${contract.id}',
+                  'Project #${project.id}',
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -47,19 +40,18 @@ class ContractCard extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildInfoColumn('Start date', contract.startDate),
+                _buildInfoColumn('Start date', project.startDate),
                 const SizedBox(
                   height: 4,
                 ),
-                _buildInfoColumn('End date', contract.endDate),
+                _buildInfoColumn('End date', project.endDate),
                 const SizedBox(
                   height: 4,
                 ),
-                _buildInfoColumn('Contract', '#${contract.id}'),
+                _buildInfoColumn('Project name', project.projectName),
                 const SizedBox(
                   height: 4,
                 ),
-                _buildInfoColumn('Amount', '${contract.amount} KD'),
               ],
             ),
           ],
@@ -72,11 +64,11 @@ class ContractCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: contract.getStatusColor(),
+        color: project.getStatusColor(),
         borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
-        ContractModel.statusToString(contract.status).capitalize(),
+        ProjectModel.statusToString(project.status).capitalize(),
         style: const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/auth/splash_screen.dart';
+import 'package:flutter_application_1/screens/auth/splash_screen.dart';
 import 'package:flutter_application_1/const/theme.dart';
 
 void main() {

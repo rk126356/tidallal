@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/auth/login_screen.dart';
+import 'package:flutter_application_1/screens/auth/initial_language_select_screen.dart';
 import 'package:flutter_application_1/const/theme.dart';
-import 'package:flutter_application_1/screens/navigation/bottom_navigation.dart';
-import 'package:flutter_application_1/tools/const_tools.dart';
+import 'package:flutter_application_1/tools/utils/const_tools.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,7 +13,9 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   void _waitAndNavigate() async {
     await Future.delayed(const Duration(seconds: 2));
-    pushReplaceAll(context, const LoginScreen());
+    if (mounted) {
+      pushReplaceAll(context, const InitialLanguageSelectScreen());
+    }
   }
 
   @override

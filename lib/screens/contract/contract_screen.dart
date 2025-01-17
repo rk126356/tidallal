@@ -45,6 +45,7 @@ class _ContractScreenState extends State<ContractScreen> {
                 child: ContractCard(
                   contract: contract,
                   showDueDate: false,
+                  canTap: true,
                 ),
               ),
             );

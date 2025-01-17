@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/const/data.dart';
 import 'package:flutter_application_1/const/theme.dart';
+import 'package:flutter_application_1/screens/about/simple_text_screen.dart';
+import 'package:flutter_application_1/tools/utils/const_tools.dart';
 
-import '../../tools/const_tools.dart';
 import '../../tools/view_tools/build_animated_widget.dart';
 import '../../widgets/icon_title_outline_widget.dart';
 
@@ -37,7 +39,8 @@ class _AboutScreenState extends State<AboutScreen> {
                   title: 'About',
                   iconPath: 'assets/icons/info.svg',
                   onPressed: () {
-                    // push(context, const AboutScreen());
+                    push(context,
+                        SimpleTextScreen(text: aboutUs, title: 'About'));
                   },
                 ),
                 delay: 100,
@@ -48,7 +51,11 @@ class _AboutScreenState extends State<AboutScreen> {
                   title: 'Terms and conditions',
                   iconPath: 'assets/icons/terms.svg',
                   onPressed: () {
-                    // push(context, const AboutScreen());
+                    push(
+                        context,
+                        SimpleTextScreen(
+                            text: termsAndConditions,
+                            title: 'Terms and conditions'));
                   },
                 ),
                 delay: 200,
@@ -59,7 +66,10 @@ class _AboutScreenState extends State<AboutScreen> {
                   title: 'Privacy policy',
                   iconPath: 'assets/icons/lock.svg',
                   onPressed: () {
-                    // push(context, const AboutScreen());
+                    push(
+                        context,
+                        SimpleTextScreen(
+                            text: privacyPolicy, title: 'Privacy policy'));
                   },
                 ),
                 delay: 300,

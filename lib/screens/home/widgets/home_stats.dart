@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/projects/active_projects_screen.dart';
+import 'package:flutter_application_1/tools/utils/const_tools.dart';
 
 import '../../../widgets/heading_widget.dart';
 import '../../../widgets/stats_box_widget.dart';
@@ -10,13 +12,13 @@ class HomeStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        HeadingWidget(title: 'Overall statistics'),
-        SizedBox(height: 8),
+        const HeadingWidget(title: 'Overall statistics'),
+        const SizedBox(height: 8),
         Row(
           children: [
-            Expanded(
+            const Expanded(
               child: StatsBoxWidget(
                 imagePath: 'assets/images/image1.png',
                 text: 'Active contracts',
@@ -24,19 +26,24 @@ class HomeStats extends StatelessWidget {
                 backgroundColor: Color(0xFFFFDB99),
               ),
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Expanded(
-              child: StatsBoxWidget(
-                imagePath: 'assets/images/image2.png',
-                text: 'Active projects',
-                value: '50',
-                backgroundColor: Color(0xFFC7DBF8),
+              child: InkWell(
+                onTap: () {
+                  push(context, const ActiveProjectsScreen());
+                },
+                child: const StatsBoxWidget(
+                  imagePath: 'assets/images/image2.png',
+                  text: 'Active projects',
+                  value: '50',
+                  backgroundColor: Color(0xFFC7DBF8),
+                ),
               ),
             ),
           ],
         ),
-        SizedBox(height: 8),
-        Row(
+        const SizedBox(height: 8),
+        const Row(
           children: [
             Expanded(
               child: StatsBoxWidget(

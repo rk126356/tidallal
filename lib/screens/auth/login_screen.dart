@@ -3,10 +3,10 @@ import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:flutter_application_1/screens/navigation/bottom_navigation.dart';
-import 'package:flutter_application_1/tools/const_tools.dart';
+import 'package:flutter_application_1/tools/utils/const_tools.dart';
 import 'package:flutter_application_1/widgets/custom_button_widget.dart';
 
-import '../widgets/text_field_widget.dart';
+import '../../widgets/text_field_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

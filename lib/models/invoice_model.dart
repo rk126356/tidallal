@@ -51,7 +51,6 @@ class InvoiceModel {
     };
   }
 
-  // Helper method to parse status string to InvoiceStatus enum
   static InvoiceStatus _parseStatus(String status) {
     switch (status.toLowerCase()) {
       case 'due':
@@ -65,7 +64,6 @@ class InvoiceModel {
     }
   }
 
-  // Helper method to convert InvoiceStatus enum to string
   static String statusToString(InvoiceStatus status) {
     switch (status) {
       case InvoiceStatus.due:
@@ -77,7 +75,6 @@ class InvoiceModel {
     }
   }
 
-  // Helper method to get the color associated with the status
   Color getStatusColor() {
     switch (status) {
       case InvoiceStatus.due:

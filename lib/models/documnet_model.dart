@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 enum DocumentStatus {
   pending,
   rejected,
-  success,
+  accepted,
 }
 
 class DocumentModel {
@@ -43,8 +43,8 @@ class DocumentModel {
         return DocumentStatus.pending;
       case 'rejected':
         return DocumentStatus.rejected;
-      case 'success':
-        return DocumentStatus.success;
+      case 'accepted':
+        return DocumentStatus.accepted;
       default:
         throw ArgumentError('Invalid status: $status');
     }
@@ -56,8 +56,8 @@ class DocumentModel {
         return 'pending';
       case DocumentStatus.rejected:
         return 'rejected';
-      case DocumentStatus.success:
-        return 'success';
+      case DocumentStatus.accepted:
+        return 'accepted';
     }
   }
 
@@ -67,7 +67,7 @@ class DocumentModel {
         return const Color(0xFFFFA500);
       case DocumentStatus.rejected:
         return Colors.red;
-      case DocumentStatus.success:
+      case DocumentStatus.accepted:
         return Colors.green;
     }
   }
@@ -86,7 +86,7 @@ List<DocumentModel> documents = [
       fileUrl: 'https://example.com/document2.pdf'),
   DocumentModel(
       id: '090900',
-      status: DocumentStatus.success,
+      status: DocumentStatus.accepted,
       description: 'Third document',
       fileUrl: 'https://example.com/document3.pdf'),
 ];
@@ -104,7 +104,7 @@ List<DocumentModel> allDocuments = [
       fileUrl: 'https://example.com/document2.pdf'),
   DocumentModel(
       id: '090900',
-      status: DocumentStatus.success,
+      status: DocumentStatus.accepted,
       description: 'Third document',
       fileUrl: 'https://example.com/document3.pdf'),
   DocumentModel(
@@ -119,7 +119,7 @@ List<DocumentModel> allDocuments = [
       fileUrl: 'https://example.com/document2.pdf'),
   DocumentModel(
       id: '090900',
-      status: DocumentStatus.success,
+      status: DocumentStatus.accepted,
       description: 'Third document',
       fileUrl: 'https://example.com/document3.pdf'),
   DocumentModel(
@@ -134,7 +134,7 @@ List<DocumentModel> allDocuments = [
       fileUrl: 'https://example.com/document2.pdf'),
   DocumentModel(
       id: '090900',
-      status: DocumentStatus.success,
+      status: DocumentStatus.accepted,
       description: 'Third document',
       fileUrl: 'https://example.com/document3.pdf'),
   DocumentModel(
@@ -149,7 +149,7 @@ List<DocumentModel> allDocuments = [
       fileUrl: 'https://example.com/document2.pdf'),
   DocumentModel(
       id: '090900',
-      status: DocumentStatus.success,
+      status: DocumentStatus.accepted,
       description: 'Third document',
       fileUrl: 'https://example.com/document3.pdf'),
 ];

@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_application_1/screens/documnets/documents_screen.dart';
-import 'package:flutter_application_1/screens/invoices/invoice_details_screen.dart';
-import 'package:flutter_application_1/tools/const_tools.dart';
+import 'package:flutter_application_1/tools/utils/const_tools.dart';
 
-import '../../models/contract_model.dart';
 import '../../models/documnet_model.dart';
 import '../../models/invoice_model.dart';
 import '../documnets/widgets/document_card.dart';
@@ -109,7 +107,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 10),
-                    child: DocumentCard(document: document),
+                    child: DocumentCard(
+                      document: document,
+                      canTap: true,
+                    ),
                   ),
                 );
               }),
@@ -154,18 +155,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                   child: Padding(
                     padding: const EdgeInsets.only(top: 8),
-                    child: InkWell(
-                      onTap: () {
-                        push(
-                            context,
-                            InvoiceDetailsScreen(
-                              invoice: invoice,
-                            ));
-                      },
-                      child: InvoiceCard(
-                        invoice: invoice,
-                        showDueDate: false,
-                      ),
+                    child: InvoiceCard(
+                      invoice: invoice,
+                      showDueDate: false,
                     ),
                   ),
                 );

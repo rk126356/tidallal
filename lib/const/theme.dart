@@ -7,10 +7,15 @@ class AppColors {
   static const Color lightYellow = Color(0xFFFFA500);
   static const Color lightGreen = Color(0xFF07B04B);
   static const Color borderColor = Color(0xFFE9E9E9);
+  static const Color lightBlack = Color(0xFF808080);
 }
 
 class AppTextStyles {
-  static TextStyle title = const TextStyle(fontSize: 24.0);
+  static TextStyle title = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: AppColors.secondary,
+  );
   static TextStyle body = const TextStyle(fontSize: 16.0);
   static TextStyle subheading = const TextStyle(fontSize: 14.0);
   static TextStyle button = const TextStyle(fontSize: 18.0);

@@ -57,7 +57,6 @@ class PaymentBottomSheet {
               CustomButton(
                 text: 'Pay Now',
                 onPressed: () {
-                  // TODO: Implement payment logic here
                   Navigator.pop(context);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(

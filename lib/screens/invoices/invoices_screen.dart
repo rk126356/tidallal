@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/const/theme.dart';
-import 'package:flutter_application_1/screens/invoices/invoice_details_screen.dart';
-import 'package:flutter_application_1/tools/const_tools.dart';
 import 'package:flutter_application_1/widgets/heading_with_icon_widget.dart';
 
 import '../../models/invoice_model.dart';
@@ -51,18 +49,9 @@ class _MyInvoicesScreenState extends State<MyInvoicesScreen> {
                     ],
                     child: Padding(
                       padding: const EdgeInsets.only(top: 8),
-                      child: InkWell(
-                        onTap: () {
-                          push(
-                              context,
-                              InvoiceDetailsScreen(
-                                invoice: invoice,
-                              ));
-                        },
-                        child: InvoiceCard(
-                          invoice: invoice,
-                          showDueDate: false,
-                        ),
+                      child: InvoiceCard(
+                        invoice: invoice,
+                        showDueDate: false,
                       ),
                     ),
                   );

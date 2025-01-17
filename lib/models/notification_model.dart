@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 class NotificationModel {
   final String title;
   final String description;

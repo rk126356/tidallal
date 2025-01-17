@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_application_1/widgets/icon_title_outline_widget.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
-import '../../tools/const_tools.dart';
+import '../../tools/utils/const_tools.dart';
 import '../../tools/view_tools/build_animated_widget.dart';
 import '../about/about_screen.dart';
+import 'sub_screens/feedback_screen.dart';
 
 class MyAccountScreen extends StatefulWidget {
   const MyAccountScreen({super.key});
@@ -67,7 +67,9 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                 IconTitleOutlineWidget(
                   title: 'Feedback',
                   iconPath: 'assets/icons/chat.svg',
-                  onPressed: () {},
+                  onPressed: () {
+                    push(context, const FeedbackScreen());
+                  },
                 ),
                 delay: 400,
               ),
