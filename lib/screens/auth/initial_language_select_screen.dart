@@ -36,7 +36,11 @@ class _InitialLanguageSelectScreenState
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        push(context, const LoginScreen());
+                        push(
+                            context,
+                            const LoginScreen(
+                              isClientLogin: true,
+                            ));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
@@ -56,7 +60,11 @@ class _InitialLanguageSelectScreenState
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () {
-                        push(context, const LoginScreen());
+                        push(
+                            context,
+                            const LoginScreen(
+                              isClientLogin: true,
+                            ));
                       },
                       style: OutlinedButton.styleFrom(
                         foregroundColor: Colors.white,

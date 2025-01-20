@@ -5,8 +5,8 @@ import 'package:flutter_application_1/tools/utils/const_tools.dart';
 import '../../../widgets/heading_widget.dart';
 import '../../../widgets/stats_box_widget.dart';
 
-class HomeStats extends StatelessWidget {
-  const HomeStats({
+class StaffHomeStats extends StatelessWidget {
+  const StaffHomeStats({
     super.key,
   });
 
@@ -21,7 +21,7 @@ class HomeStats extends StatelessWidget {
             const Expanded(
               child: StatsBoxWidget(
                 imagePath: 'assets/images/image1.png',
-                text: 'Active contracts',
+                text: 'Pending tasks',
                 value: '100',
                 backgroundColor: Color(0xFFFFDB99),
               ),
@@ -34,32 +34,19 @@ class HomeStats extends StatelessWidget {
                 },
                 child: const StatsBoxWidget(
                   imagePath: 'assets/images/image2.png',
-                  text: 'Active projects',
+                  text: 'Projects assigned',
                   value: '50',
                   backgroundColor: Color(0xFFC7DBF8),
                 ),
               ),
             ),
-          ],
-        ),
-        const SizedBox(height: 8),
-        const Row(
-          children: [
-            Expanded(
+            const SizedBox(width: 8),
+            const Expanded(
               child: StatsBoxWidget(
                 imagePath: 'assets/images/image3.png',
-                text: 'Paid invoices',
+                text: 'Completed tasks',
                 value: '30',
                 backgroundColor: Color(0xFFD8FEAA),
-              ),
-            ),
-            SizedBox(width: 8),
-            Expanded(
-              child: StatsBoxWidget(
-                imagePath: 'assets/images/image4.png',
-                text: 'Due invoices',
-                value: '08',
-                backgroundColor: Color(0xFFFFDDDD),
               ),
             ),
           ],

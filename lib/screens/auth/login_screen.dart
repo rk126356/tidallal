@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/const/data.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_application_1/screens/auth/reset_password_screen.dart';
 
 import 'package:flutter_application_1/screens/navigation/bottom_navigation.dart';
 import 'package:flutter_application_1/tools/utils/const_tools.dart';
 import 'package:flutter_application_1/widgets/custom_button_widget.dart';
 
 import '../../widgets/text_field_widget.dart';
+import 'widgets/animated_label.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key, required this.isClientLogin});
+
+  final bool isClientLogin;
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -24,9 +29,9 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: AppColors.primary,
-        title: const Text(
-          'Client login',
-          style: TextStyle(color: Colors.white),
+        title: Text(
+          '${widget.isClientLogin ? 'Client' : 'Staff'} login',
+          style: const TextStyle(color: Colors.white),
         ),
         centerTitle: true,
       ),
@@ -38,24 +43,30 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               const SizedBox(height: 20),
 
-              // Mobile Number Label and Input
-              _buildAnimatedLabel('Mobile Number')
+              buildAnimatedLabel(
+                widget.isClientLogin ? 'Mobile Number' : 'Username',
+              )
                   .animate()
                   .fadeIn(duration: 600.ms, delay: 100.ms)
                   .slideX(begin: -0.2, end: 0),
               const SizedBox(height: 8),
               buildTextFormField(
-                hintText: 'Enter your mobile number',
-                prefixIcon: Icons.phone_android_sharp,
-                keyboardType: TextInputType.phone,
+                hintText: widget.isClientLogin
+                    ? 'Enter your mobile number'
+                    : 'Username',
+                prefixIcon: widget.isClientLogin
+                    ? Icons.phone_android_sharp
+                    : Icons.person,
+                keyboardType: widget.isClientLogin
+                    ? TextInputType.phone
+                    : TextInputType.text,
               )
                   .animate()
                   .fadeIn(duration: 600.ms, delay: 200.ms)
                   .slideX(begin: -0.2, end: 0),
               const SizedBox(height: 16),
 
-              // Password Label and Input
-              _buildAnimatedLabel('Password')
+              buildAnimatedLabel('Password')
                   .animate()
                   .fadeIn(duration: 600.ms, delay: 300.ms)
                   .slideX(begin: -0.2, end: 0),
@@ -84,7 +95,9 @@ class _LoginScreenState extends State<LoginScreen> {
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    push(context, const ResetPasswordScreen());
+                  },
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
                     minimumSize: const Size(0, 0),
@@ -107,6 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
               // Submit Button
               CustomButton(
                 onPressed: () {
+                  isClient = widget.isClientLogin;
                   pushReplaceAll(context, const CustomBottomNavigation());
                 },
                 text: 'Submit',
@@ -133,7 +147,10 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    pushReplace(context,
+                        LoginScreen(isClientLogin: !widget.isClientLogin));
+                  },
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     side: const BorderSide(color: AppColors.primary),
@@ -141,9 +158,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: const Text(
-                    'Continue as Staff',
-                    style: TextStyle(
+                  child: Text(
+                    'Continue as ${widget.isClientLogin ? 'Staff' : 'Client'}',
+                    style: const TextStyle(
                       color: AppColors.primary,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -157,30 +174,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildAnimatedLabel(String text) {
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: text,
-            style: const TextStyle(
-              color: Colors.black87,
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          const TextSpan(
-            text: ' *',
-            style: TextStyle(
-              color: Colors.red,
-              fontSize: 14,
-            ),
-          ),
-        ],
       ),
     );
   }

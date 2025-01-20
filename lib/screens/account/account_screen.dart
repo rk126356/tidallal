@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/const/data.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_application_1/widgets/icon_title_outline_widget.dart';
 
@@ -51,28 +52,30 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                 ),
                 delay: 200,
               ),
-              const SizedBox(height: 10),
-              buildAnimatedWidget(
-                IconTitleOutlineWidget(
-                  title: 'About Us',
-                  iconPath: 'assets/icons/info.svg',
-                  onPressed: () {
-                    push(context, const AboutScreen());
-                  },
+              if (isClient) ...[
+                const SizedBox(height: 10),
+                buildAnimatedWidget(
+                  IconTitleOutlineWidget(
+                    title: 'About Us',
+                    iconPath: 'assets/icons/info.svg',
+                    onPressed: () {
+                      push(context, const AboutScreen());
+                    },
+                  ),
+                  delay: 300,
                 ),
-                delay: 300,
-              ),
-              const SizedBox(height: 10),
-              buildAnimatedWidget(
-                IconTitleOutlineWidget(
-                  title: 'Feedback',
-                  iconPath: 'assets/icons/chat.svg',
-                  onPressed: () {
-                    push(context, const FeedbackScreen());
-                  },
+                const SizedBox(height: 10),
+                buildAnimatedWidget(
+                  IconTitleOutlineWidget(
+                    title: 'Feedback',
+                    iconPath: 'assets/icons/chat.svg',
+                    onPressed: () {
+                      push(context, const FeedbackScreen());
+                    },
+                  ),
+                  delay: 400,
                 ),
-                delay: 400,
-              ),
+              ],
               const SizedBox(height: 10),
               buildAnimatedWidget(
                 IconTitleOutlineWidget(

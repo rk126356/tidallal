@@ -1,60 +1,78 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/const/data.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_application_1/models/project_model.dart';
 import 'package:flutter_application_1/tools/utils/extentions.dart';
 
+import '../../../tools/utils/const_tools.dart';
+import '../project_details_screen.dart';
+
 class ProjectCard extends StatelessWidget {
   final ProjectModel project;
+  final bool canTap;
 
-  const ProjectCard({super.key, required this.project});
+  const ProjectCard({super.key, required this.project, required this.canTap});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 1,
-      color: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-        side: const BorderSide(color: Color(0xFFE9E9E9)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Project #${project.id}',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.primary,
+    return InkWell(
+      onTap: !canTap
+          ? null
+          : () {
+              push(
+                  context,
+                  ProjectDetailsScreen(
+                    project: project,
+                  ));
+            },
+      child: Card(
+        elevation: 1,
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+          side: const BorderSide(color: Color(0xFFE9E9E9)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Project #${project.id}',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primary,
+                    ),
                   ),
-                ),
-                _buildStatusChip(),
-              ],
-            ),
-            const SizedBox(height: 12),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _buildInfoColumn('Start date', project.startDate),
-                const SizedBox(
-                  height: 4,
-                ),
-                _buildInfoColumn('End date', project.endDate),
-                const SizedBox(
-                  height: 4,
-                ),
-                _buildInfoColumn('Project name', project.projectName),
-                const SizedBox(
-                  height: 4,
-                ),
-              ],
-            ),
-          ],
+                  _buildStatusChip(),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _buildInfoColumn(isClient ? 'Start date' : 'Assigned date',
+                      project.startDate),
+                  const SizedBox(
+                    height: 4,
+                  ),
+                  _buildInfoColumn(
+                      isClient ? 'End date' : 'Due date', project.endDate),
+                  const SizedBox(
+                    height: 4,
+                  ),
+                  _buildInfoColumn('Project name', project.projectName),
+                  const SizedBox(
+                    height: 4,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

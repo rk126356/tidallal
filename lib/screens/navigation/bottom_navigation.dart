@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/const/data.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_application_1/screens/account/account_screen.dart';
 import 'package:flutter_application_1/screens/contract/contract_screen.dart';
 import 'package:flutter_application_1/screens/home/home_screen.dart';
 import 'package:flutter_application_1/screens/invoices/invoices_screen.dart';
 import 'package:flutter_application_1/screens/notifications/notifications_screen.dart';
+import 'package:flutter_application_1/screens/projects/active_projects_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomBottomNavigation extends StatefulWidget {
@@ -17,26 +19,56 @@ class CustomBottomNavigation extends StatefulWidget {
 class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
   int _selectedIndex = 0;
 
-  final List<String> _svgIcons = [
-    'assets/icons/home.svg',
-    'assets/icons/card.svg',
-    'assets/icons/slip.svg',
-    'assets/icons/bell.svg',
-    'assets/icons/me.svg',
-  ];
+  List<String> _svgIcons = [];
 
-  final List<Widget> _screens = [
-    const HomeScreen(),
-    const MyInvoicesScreen(),
-    const ContractScreen(),
-    const NotificationsScreen(),
-    const MyAccountScreen(),
-  ];
+  List<Widget> _screens = [];
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  void _load() {
+    if (isClient) {
+      _svgIcons = [
+        'assets/icons/home.svg',
+        'assets/icons/card.svg',
+        'assets/icons/slip.svg',
+        'assets/icons/bell.svg',
+        'assets/icons/me.svg',
+      ];
+
+      _screens = [
+        const HomeScreen(),
+        const MyInvoicesScreen(),
+        const ContractScreen(),
+        const NotificationsScreen(),
+        const MyAccountScreen(),
+      ];
+    }
+
+    if (!isClient) {
+      _svgIcons = [
+        'assets/icons/home.svg',
+        'assets/icons/slip.svg',
+        'assets/icons/bell.svg',
+        'assets/icons/me.svg',
+      ];
+
+      _screens = [
+        const HomeScreen(),
+        const ActiveProjectsScreen(),
+        const NotificationsScreen(),
+        const MyAccountScreen(),
+      ];
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
   }
 
   @override

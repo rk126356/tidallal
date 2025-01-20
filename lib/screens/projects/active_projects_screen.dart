@@ -44,6 +44,7 @@ class _ActiveProjectsScreenState extends State<ActiveProjectsScreen> {
                 padding: const EdgeInsets.only(top: 8),
                 child: ProjectCard(
                   project: project,
+                  canTap: true,
                 ),
               ),
             );

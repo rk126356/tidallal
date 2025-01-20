@@ -74,27 +74,6 @@ class ProjectModel {
         return Colors.green;
     }
   }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is ProjectModel &&
-        other.id == id &&
-        other.projectName == projectName &&
-        other.startDate == startDate &&
-        other.endDate == endDate &&
-        other.status == status;
-  }
-
-  @override
-  int get hashCode {
-    return id.hashCode ^
-        projectName.hashCode ^
-        startDate.hashCode ^
-        endDate.hashCode ^
-        status.hashCode;
-  }
 }
 
 List<ProjectModel> projects = [

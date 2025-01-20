@@ -19,7 +19,7 @@ class StatsBoxWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
+      height: 120,
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: backgroundColor,
