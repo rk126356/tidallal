@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_application_1/models/documnet_model.dart';
 import 'package:flutter_application_1/screens/documnets/widgets/audio_comment_card.dart';
@@ -38,10 +37,7 @@ class _DocumentDetailsScreenState extends State<DocumentDetailsScreen> {
             DocumentCard(
               document: widget.document,
               canTap: false,
-            )
-                .animate()
-                .fadeIn(duration: 500.ms)
-                .slideY(begin: -0.2, end: 0, duration: 500.ms),
+            ),
             const SizedBox(height: 16),
             Container(
               decoration: BoxDecoration(
@@ -71,7 +67,7 @@ class _DocumentDetailsScreenState extends State<DocumentDetailsScreen> {
                   }).toList(),
                 ),
               ),
-            ).animate().fadeIn(delay: 200.ms, duration: 500.ms),
+            ),
             const SizedBox(height: 16),
             Expanded(
               child: Container(
@@ -119,16 +115,13 @@ class _DocumentDetailsScreenState extends State<DocumentDetailsScreen> {
                             isAdmin: true,
                             text: 'Please take a note of the above comments',
                           ),
-                        ]
-                            .animate(interval: 100.ms)
-                            .fadeIn(duration: 500.ms)
-                            .slideY(begin: 0.2, end: 0, duration: 500.ms),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ).animate().fadeIn(delay: 400.ms, duration: 500.ms),
+            ),
             const SizedBox(height: 16),
             Row(
               children: [
@@ -205,10 +198,7 @@ class _DocumentDetailsScreenState extends State<DocumentDetailsScreen> {
                   ),
                 ),
               ],
-            )
-                .animate()
-                .fadeIn(delay: 600.ms, duration: 500.ms)
-                .slideY(begin: 0.2, end: 0, duration: 500.ms),
+            ),
           ],
         ),
       ),

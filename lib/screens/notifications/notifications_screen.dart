@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_application_1/models/notification_model.dart';
 import 'package:flutter_application_1/screens/notifications/widgets/notification_card.dart';
@@ -58,21 +57,10 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           itemCount: notifications.length,
           itemBuilder: (context, index) {
             final notification = notifications[index];
-            return Animate(
-              effects: [
-                FadeEffect(delay: 100.ms * index, duration: 300.ms),
-                SlideEffect(
-                  delay: 100.ms * index,
-                  duration: 300.ms,
-                  begin: const Offset(0.1, 0),
-                  end: const Offset(0, 0),
-                ),
-              ],
-              child: Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: NotificationCard(
-                  notification: notification,
-                ),
+            return Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: NotificationCard(
+                notification: notification,
               ),
             );
           },

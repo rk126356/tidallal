@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_application_1/models/project_model.dart';
 import 'package:flutter_application_1/screens/projects/widgets/project_card.dart';
@@ -30,22 +29,11 @@ class _ActiveProjectsScreenState extends State<ActiveProjectsScreen> {
           itemCount: projects.length,
           itemBuilder: (context, index) {
             final project = projects[index];
-            return Animate(
-              effects: [
-                FadeEffect(delay: 100.ms * index, duration: 300.ms),
-                SlideEffect(
-                  delay: 100.ms * index,
-                  duration: 300.ms,
-                  begin: const Offset(0.1, 0),
-                  end: const Offset(0, 0),
-                ),
-              ],
-              child: Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: ProjectCard(
-                  project: project,
-                  canTap: true,
-                ),
+            return Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: ProjectCard(
+                project: project,
+                canTap: true,
               ),
             );
           },

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_application_1/screens/documnets/documents_screen.dart';
 import 'package:flutter_application_1/tools/utils/const_tools.dart';
@@ -61,104 +60,58 @@ class _ClientHomeState extends State<ClientHome> {
             children: [
               const ClientHomeStats(),
               const SizedBox(height: 14),
-              Animate(
-                effects: [
-                  FadeEffect(duration: 300.ms),
-                  SlideEffect(
-                    duration: 300.ms,
-                    begin: const Offset(0, -0.1),
-                    end: const Offset(0, 0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Documents',
+                    style: AppTextStyles.heading,
                   ),
-                ],
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Documents',
-                      style: AppTextStyles.heading,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        push(context, const DocumentsScreen());
-                      },
-                      child: const Text(
-                        'view all',
-                        style: TextStyle(
-                          color: Color(0xFF808080),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 8),
-              ...documents.asMap().entries.map((entry) {
-                final index = entry.key;
-                final document = entry.value;
-                return Animate(
-                  effects: [
-                    FadeEffect(delay: 100.ms * index, duration: 300.ms),
-                    SlideEffect(
-                      delay: 100.ms * index,
-                      duration: 300.ms,
-                      begin: const Offset(0, 0.1),
-                      end: const Offset(0, 0),
-                    ),
-                  ],
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: DocumentCard(
-                      document: document,
-                      canTap: true,
-                    ),
-                  ),
-                );
-              }),
-              const SizedBox(height: 14),
-              Animate(
-                effects: [
-                  FadeEffect(duration: 300.ms),
-                  SlideEffect(
-                    duration: 300.ms,
-                    begin: const Offset(0, -0.1),
-                    end: const Offset(0, 0),
-                  ),
-                ],
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Invoices',
-                      style: AppTextStyles.heading,
-                    ),
-                    const Text(
+                  InkWell(
+                    onTap: () {
+                      push(context, const DocumentsScreen());
+                    },
+                    child: const Text(
                       'view all',
                       style: TextStyle(
                         color: Color(0xFF808080),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              ...invoices.asMap().entries.map((entry) {
-                final index = entry.key;
-                final invoice = entry.value;
-                return Animate(
-                  effects: [
-                    FadeEffect(delay: 100.ms * index, duration: 300.ms),
-                    SlideEffect(
-                      delay: 100.ms * index,
-                      duration: 300.ms,
-                      begin: const Offset(0.1, 0),
-                      end: const Offset(0, 0),
+              const SizedBox(height: 8),
+              ...documents.map((document) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: DocumentCard(
+                    document: document,
+                    canTap: true,
+                  ),
+                );
+              }),
+              const SizedBox(height: 14),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Invoices',
+                    style: AppTextStyles.heading,
+                  ),
+                  const Text(
+                    'view all',
+                    style: TextStyle(
+                      color: Color(0xFF808080),
                     ),
-                  ],
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8),
-                    child: InvoiceCard(
-                      invoice: invoice,
-                      showDueDate: false,
-                    ),
+                  ),
+                ],
+              ),
+              ...invoices.map((invoice) {
+                return Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: InvoiceCard(
+                    invoice: invoice,
+                    showDueDate: false,
                   ),
                 );
               }),

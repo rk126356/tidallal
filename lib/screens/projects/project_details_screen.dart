@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/tools/utils/extentions.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -40,10 +39,7 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
               ProjectCard(
                 project: widget.project,
                 canTap: false,
-              )
-                  .animate()
-                  .fadeIn(duration: 500.ms)
-                  .slideY(begin: -0.2, end: 0, duration: 500.ms),
+              ),
               const SizedBox(height: 16),
               Container(
                 decoration: BoxDecoration(
@@ -73,7 +69,7 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                     }).toList(),
                   ),
                 ),
-              ).animate().fadeIn(delay: 200.ms, duration: 500.ms),
+              ),
               const SizedBox(height: 16),
               Card(
                 elevation: 1,
@@ -114,7 +110,7 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                     ],
                   ),
                 ),
-              ).animate().fadeIn(delay: 300.ms, duration: 500.ms),
+              ),
               const SizedBox(height: 16),
               Card(
                 elevation: 1,
@@ -191,7 +187,7 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                     ],
                   ),
                 ),
-              ).animate().fadeIn(delay: 400.ms, duration: 500.ms),
+              ),
               const SizedBox(height: 16),
               Container(
                 padding: const EdgeInsets.all(16),
@@ -239,14 +235,11 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                           isAdmin: true,
                           text: 'Please take a note of the above comments',
                         ),
-                      ]
-                          .animate(interval: 100.ms)
-                          .fadeIn(duration: 500.ms)
-                          .slideY(begin: 0.2, end: 0, duration: 500.ms),
+                      ],
                     ),
                   ],
                 ),
-              ).animate().fadeIn(delay: 400.ms, duration: 500.ms),
+              ),
               const SizedBox(height: 16),
               Row(
                 children: [
@@ -323,10 +316,7 @@ class _ProjectDetailsScreenState extends State<ProjectDetailsScreen> {
                     ),
                   ),
                 ],
-              )
-                  .animate()
-                  .fadeIn(delay: 600.ms, duration: 500.ms)
-                  .slideY(begin: 0.2, end: 0, duration: 500.ms),
+              ),
             ],
           ),
         ),

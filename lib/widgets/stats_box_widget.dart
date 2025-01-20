@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/const/theme.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 class StatsBoxWidget extends StatelessWidget {
   final String imagePath;
@@ -38,7 +37,7 @@ class StatsBoxWidget extends StatelessWidget {
                 width: 40,
                 height: 40,
                 fit: BoxFit.contain,
-              ).animate().fadeIn(duration: 600.ms).scale(delay: 300.ms),
+              ),
               Text(
                 value,
                 style: const TextStyle(
@@ -46,10 +45,7 @@ class StatsBoxWidget extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
-              )
-                  .animate()
-                  .fadeIn(delay: 300.ms, duration: 600.ms)
-                  .slideX(begin: 0.2, end: 0),
+              ),
             ],
           ),
           Text(
@@ -61,12 +57,9 @@ class StatsBoxWidget extends StatelessWidget {
             ),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-          )
-              .animate()
-              .fadeIn(delay: 600.ms, duration: 600.ms)
-              .slideY(begin: 0.2, end: 0),
+          ),
         ],
       ),
-    ).animate().scale(duration: 300.ms).fadeIn(duration: 300.ms);
+    );
   }
 }

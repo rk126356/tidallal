@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_application_1/widgets/heading_with_icon_widget.dart';
 
@@ -37,22 +36,11 @@ class _MyInvoicesScreenState extends State<MyInvoicesScreen> {
                 itemCount: invoices.length,
                 itemBuilder: (context, index) {
                   final invoice = invoices[index];
-                  return Animate(
-                    effects: [
-                      FadeEffect(delay: 100.ms * index, duration: 300.ms),
-                      SlideEffect(
-                        delay: 100.ms * index,
-                        duration: 300.ms,
-                        begin: const Offset(0.1, 0),
-                        end: const Offset(0, 0),
-                      ),
-                    ],
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: InvoiceCard(
-                        invoice: invoice,
-                        showDueDate: false,
-                      ),
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: InvoiceCard(
+                      invoice: invoice,
+                      showDueDate: false,
                     ),
                   );
                 },

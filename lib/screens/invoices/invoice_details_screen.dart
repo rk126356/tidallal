@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/const/theme.dart';
 import 'package:flutter_application_1/models/invoice_model.dart';
 import 'package:flutter_application_1/models/receipts_model.dart';
@@ -73,21 +72,10 @@ class _InvoiceDetailsScreenState extends State<InvoiceDetailsScreen> {
                 itemCount: receipts.length,
                 itemBuilder: (context, index) {
                   final receipt = receipts[index];
-                  return Animate(
-                    effects: [
-                      FadeEffect(delay: 100.ms * index, duration: 300.ms),
-                      SlideEffect(
-                        delay: 100.ms * index,
-                        duration: 300.ms,
-                        begin: const Offset(0.1, 0),
-                        end: const Offset(0, 0),
-                      ),
-                    ],
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: ReceiptCard(
-                        receipt: receipt,
-                      ),
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: ReceiptCard(
+                      receipt: receipt,
                     ),
                   );
                 },

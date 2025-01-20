@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/const/data.dart';
 import 'package:flutter_application_1/const/theme.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_application_1/screens/auth/reset_password_screen.dart';
 
 import 'package:flutter_application_1/screens/navigation/bottom_navigation.dart';
@@ -45,10 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
               buildAnimatedLabel(
                 widget.isClientLogin ? 'Mobile Number' : 'Username',
-              )
-                  .animate()
-                  .fadeIn(duration: 600.ms, delay: 100.ms)
-                  .slideX(begin: -0.2, end: 0),
+              ),
               const SizedBox(height: 8),
               buildTextFormField(
                 hintText: widget.isClientLogin
@@ -60,16 +56,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 keyboardType: widget.isClientLogin
                     ? TextInputType.phone
                     : TextInputType.text,
-              )
-                  .animate()
-                  .fadeIn(duration: 600.ms, delay: 200.ms)
-                  .slideX(begin: -0.2, end: 0),
+              ),
               const SizedBox(height: 16),
 
-              buildAnimatedLabel('Password')
-                  .animate()
-                  .fadeIn(duration: 600.ms, delay: 300.ms)
-                  .slideX(begin: -0.2, end: 0),
+              buildAnimatedLabel('Password'),
               const SizedBox(height: 8),
               buildTextFormField(
                 hintText: 'Enter your password',
@@ -86,10 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     });
                   },
                 ),
-              )
-                  .animate()
-                  .fadeIn(duration: 600.ms, delay: 400.ms)
-                  .slideX(begin: -0.2, end: 0),
+              ),
 
               // Reset Password Button
               Align(
@@ -111,10 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-              )
-                  .animate()
-                  .fadeIn(duration: 600.ms, delay: 500.ms)
-                  .slideX(begin: 0.2, end: 0),
+              ),
               const SizedBox(height: 24),
 
               // Submit Button
@@ -124,10 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   pushReplaceAll(context, const CustomBottomNavigation());
                 },
                 text: 'Submit',
-              )
-                  .animate()
-                  .fadeIn(duration: 600.ms, delay: 600.ms)
-                  .slideY(begin: 0.2, end: 0),
+              ),
 
               // OR Divider
               const SizedBox(height: 20),
@@ -140,7 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Expanded(child: Divider()),
                 ],
-              ).animate().fadeIn(duration: 600.ms, delay: 700.ms),
+              ),
 
               // Continue as Staff Button
               const SizedBox(height: 20),
@@ -167,10 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-              )
-                  .animate()
-                  .fadeIn(duration: 600.ms, delay: 800.ms)
-                  .slideY(begin: 0.2, end: 0),
+              ),
             ],
           ),
         ),
