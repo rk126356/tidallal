@@ -6,6 +6,7 @@ import 'package:flutter_application_1/widgets/icon_title_outline_widget.dart';
 import '../../tools/utils/const_tools.dart';
 import '../../tools/view_tools/build_animated_widget.dart';
 import '../about/about_screen.dart';
+import '../auth/reset_password_screen.dart';
 import 'sub_screens/feedback_screen.dart';
 
 class MyAccountScreen extends StatefulWidget {
@@ -48,7 +49,9 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                 IconTitleOutlineWidget(
                   title: 'Reset password',
                   iconPath: 'assets/icons/unlock.svg',
-                  onPressed: () {},
+                  onPressed: () {
+                    push(context, const ResetPasswordScreen());
+                  },
                 ),
                 delay: 200,
               ),

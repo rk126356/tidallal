@@ -83,7 +83,7 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
               colorFilter: ColorFilter.mode(
                 _svgIcons.indexOf(iconPath) == _selectedIndex
                     ? Colors.white
-                    : Colors.white.withOpacity(0.7),
+                    : Colors.white.withValues(alpha: 0.7),
                 BlendMode.srcIn,
               ),
               height: 20,
